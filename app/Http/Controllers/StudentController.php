@@ -24,7 +24,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return View::make('nerds.create');
+        return view('add-student');
     }
 
     /**
@@ -42,7 +42,7 @@ class StudentController extends Controller
         ]);
 
         Student::create($request->all());
-        return redirect()->route('list-student')
+        return redirect()->route('student.index')
                         ->with('success','Student created successfully');
     }
 
@@ -86,7 +86,7 @@ class StudentController extends Controller
         ]);
 
         Student::find($id)->update($request->all());
-        return redirect()->route('list-student')
+        return redirect()->route('student.index')
                         ->with('success','student updated successfully');
     }
 
